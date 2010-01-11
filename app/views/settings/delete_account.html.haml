@@ -1,0 +1,12 @@
+%div
+  - form_tag :action => 'destroy' do
+    %p
+      %b Input Password:
+    %p
+      = password_field_tag 'password', nil, {:autocomplete => 'off'}
+    %p
+      %b Verify Password:
+    %p
+      = password_field_tag 'password_verify', nil, {:autocomplete => 'off'}
+    %p
+      = submit_tag 'Delete'

@@ -1,0 +1,12 @@
+%div
+  %p Please input screen name and password 
+  %p memo: These screen name and password are used in only P4T. I recommend to use the same screen name as screen name of Twitter, but You'd better not use the same password as password of Twitter.
+  - form_tag :action => :insert do
+    %p  
+      %b Screen Name
+      = text_field_tag 'screen_name'
+    %p  
+      %b Password
+      = password_field_tag 'password'
+    %p
+      = submit_tag 'Create Account'

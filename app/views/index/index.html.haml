@@ -1,0 +1,19 @@
+!!! XML
+!!!
+%html
+  %head
+    %title P4T - Photos for Twitter
+    = stylesheet_link_tag 'common'
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "Atom", :href => 'http://p4t.mobi/index/atom/'}
+  %body
+    = render :partial => 'layouts/header'
+    - @articles.each do |a|
+      %div
+        %h3
+          = link_to h(a.comments), :controller => :photo, :action => :permanent, :id => a.id
+        %p
+          = link_to((image_tag '/photos/'+a.id.to_s+'.png'), :controller => :photo, :action => :permanent, :id => a.id)
+        %p
+          = link_to h(a.user.screen_name), :controller => :stream, :action => :stream, :id => a.user.screen_name
+        %hr{:style => "width:80%;"}
+    = will_paginate(@articles)

@@ -1,0 +1,33 @@
+%div
+  %div
+    %p
+      %b Screen Name:
+      =h @login_user.screen_name
+  %div
+    %p
+      %b Mail Address:
+      =h @login_user.mail
+    %p
+      %b
+        = link_to 'Generate Mail Address', :action => :generate_mail
+  %div
+    %p
+      %b API Key:
+      =h @login_user.api_key
+    %p
+      %b
+        = link_to 'Generate API Key', :action => :generate_api_key
+  %div
+    %p  
+      %b Password:
+      ******
+    %p
+      %b
+        = link_to 'Change Password', :action => :password
+  %div
+    %p
+      %br
+      %br
+      %br
+      %br
+      = link_to 'Delete My Account', :action => :delete_account

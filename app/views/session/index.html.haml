@@ -1,0 +1,23 @@
+!!! XML
+!!!
+%html
+  %head
+    %title P4T
+  %body
+    = render :partial => 'layouts/header'
+    %div
+      %p If you have P4T account.
+      %h3 Sign In
+      - form_tag :action => :sign_in do
+        %p
+          %b Screen Name:
+          = text_field_tag 'screen_name'
+        %p
+          %b Password:
+          = password_field_tag 'password'
+        %p
+          = submit_tag 'Submit'
+      %hr{:style => "width:90%;"}
+      %p If you don't have P4T account.
+      %h3
+        = link_to 'Sign Up with Twitter OAuth', :action => :oauth

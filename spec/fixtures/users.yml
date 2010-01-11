@@ -1,0 +1,13 @@
+--- 
+user_00003: 
+  created_at: 2009-12-29 16:01:43 Z
+  updated_at: 2009-12-29 16:01:49 Z
+  api_key: 
+  mail: test@p4t.mobi
+  id: 1
+  user_id: 999999999
+  access_token_secret: testsecret
+  password: password
+  screen_name: screen_name
+  access_token: access
+

@@ -1,0 +1,22 @@
+!!! XML
+!!!
+%html 
+  %head
+    %title
+      P4T -
+      =h @title
+    = stylesheet_link_tag 'common'
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "Atom", :href => 'http://p4t.mobi/stream/'+h(@user.screen_name)+'/atom/'}
+  %body
+    = render :partial => 'layouts/header'
+    %div.autopagerize_page_element
+      - @articles.each do |a|
+        %div
+          %h3
+            = link_to((h a.comments), :controller => :photo, :action => :permanent, :id => a.id)
+          %p
+            = link_to((image_tag '/photos/'+a.id.to_s+'.png'), :controller => :photo, :action => :permanent, :id => a.id)
+          %hr{:style => 'width:80%;'}
+      %div.autopagerize_insert_before
+      = will_paginate(@articles)
+
