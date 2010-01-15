@@ -3,7 +3,8 @@ class HomeController < ApplicationController
 
   def index
     @title = "home"
-    @articles = Article.find(:all,
+    @articles = Article.paginate(:page => params[:page],
+      :per_page => 20,
       :conditions => ['user_id = ?', session[:login_id]],
       :order => 'created_at desc')
   end
