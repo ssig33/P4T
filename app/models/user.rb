@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
     )
   end
 
-  def User.get_request_token(request)
+  def User.get_request_token()
     return oauth_consumer.get_request_token(
-    :oauth_callback => "http://#{SITE_DOMAIN}/session/oauth_callback")
+      :oauth_callback => "http://#{SITE_DOMAIN}/session/oauth_callback")
   end
 
   def User.get_access_token_from_request_token(params,

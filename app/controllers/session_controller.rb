@@ -4,7 +4,7 @@ class SessionController < ApplicationController
   end
 
   def oauth
-    request_token = User.get_request_token(request)
+    request_token = User.get_request_token()
     session[:request_token] = request_token.token
     session[:request_token_secret] = request_token.secret
     redirect_to request_token.authorize_url
