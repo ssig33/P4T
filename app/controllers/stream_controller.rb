@@ -19,5 +19,10 @@ class StreamController < ApplicationController
       :include => :user,
       :conditions => ['users.screen_name = ?', params[:id]],
       :order => 'articles.created_at desc')
+    @articles.each do |a|
+      if a.comments == nil
+        a.comments == ""
+      end
+    end
   end
 end
