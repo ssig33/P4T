@@ -9,14 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100101004953) do
+ActiveRecord::Schema.define(:version => 20100124190025) do
 
   create_table "articles", :force => true do |t|
-    t.string   "comments"
+    t.string   "title"
     t.string   "url"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comments"
   end
 
   add_index "articles", ["created_at"], :name => "index_articles_on_created_at"

@@ -2,7 +2,7 @@
   - @articles.each do |a|
     %div
       %h3
-        =link_to h(a.comments), :controller => :photo, :action => :permanent, :id => a.id
+        =link_to h(a.title), :controller => :photo, :action => :permanent, :id => a.id
       %p
         = link_to((image_tag '/photos/'+a.id.to_s+'.png'), :controller => :photo, :action => :permanent, :id => a.id)
 %div.autopagerize_insert_before
