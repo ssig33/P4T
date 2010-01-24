@@ -13,7 +13,7 @@ atom_feed(:language => 'ja-JP',
                :id        => 'http://p4t.mobi/photo/'+a.id.to_s,
                :published => a.created_at,
                :updated   => a.updated_at) do |item|
-      item.title(a.user.screen_name+' - '+a.comments)
+      item.title(a.user.screen_name+' - '+a.title)
       item.content("<img src=\"http://p4t.mobi/photos/#{a.id.to_s}.png\" />", :type => 'html')
       item.author{|author| a.user.screen_name }
     end
