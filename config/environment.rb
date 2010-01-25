@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
 end
 
 require 'rubygems'
+require 'bluecloth'
 require 'json'
 require 'oauth'
 require 'RMagick'

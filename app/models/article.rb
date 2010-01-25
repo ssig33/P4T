@@ -22,4 +22,19 @@ class Article < ActiveRecord::Base
       article.destroy
     end
   end
+
+  def Article.render_markdown(text)
+    unless text == nil
+      return BlueCloth.new(text).to_html
+    else
+      return ""
+    end
+  end
+
+  def Article.render_markdown_articles(articles)
+    articles.each do |a|
+      a.comments = Article.render_markdown(a.comments)
+    end
+    return articles
+  end
 end

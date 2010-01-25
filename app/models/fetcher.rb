@@ -48,7 +48,7 @@ class Fetcher < ActionMailer::Base
     i = 1
     body = ""
     while i < array.length
-      body = body + "<p>" + array[i] + "</p>\n"
+      body = body + array[i] + "\n"
       i += 1
     end
     answer = {}
