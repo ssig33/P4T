@@ -10,7 +10,13 @@
     %link{:rel => "alternate", :type => "application/rss+xml", :title => "Atom", :href => 'http://p4t.mobi/stream/'+h(@article.user.screen_name)+'/atom/'}
   %body 
     = render :partial => 'layouts/header'
+    - if @login_user.id == @article.user.id
+      %div
+        = link_to "Edit", :action => :edit, :id => @article.id
+        %br
+        %br
     %div
       = image_tag '/photos/'+@article.id.to_s+'.png'
       %div
         =sanitize @article.comments
+      

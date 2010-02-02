@@ -40,6 +40,8 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect '', :controller => :index
   map.connect 'index/atom', :controller => :index, :action => :atom
+  map.connect 'edit/:id', :controller => :photo, :action => :edit
+  map.connect 'update', :controller => :photo, :action => :update
   map.connect 'photo/:id', :controller => :photo, :action => :permanent
   map.connect 'stream/:id', :controller => :stream, :action => :stream
   map.connect 'stream/:id/atom', :controller => :stream, :action => :atom

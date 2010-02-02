@@ -37,4 +37,16 @@ class Article < ActiveRecord::Base
     end
     return articles
   end
+
+  def Article.delicious(img)
+    #begin
+      img2 = img.contrast(true).contrast(true).contrast(true)
+      img3 = img2.blur_image(radius=0.0, sigma=(0.0 - 0.5))
+      img4 = img3.modulate(1.0, 1.5, 0.9)
+      return img4
+    #rescue
+    #  return img
+    #end
+  end
+
 end

@@ -1,0 +1,27 @@
+!!! XML
+!!!
+%html
+  %head
+    %title
+      =h @article.user.screen_name
+      \- Edit -
+      =h @article.title
+    = stylesheet_link_tag 'common'
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "Atom", :href => 'http://p4t.mobi/stream/'+h(@article.user.screen_name)+'/atom/'}
+  %body 
+    = render :partial => 'layouts/header'
+    %div
+      = image_tag '/photos/'+@article.id.to_s+'.png'
+      %div
+        - form_tag :action => :update do
+          = hidden_field_tag 'article_id', @article.id
+          %p
+            %b title:
+            %br
+            = text_field_tag 'article[title]', @article.title, :size => '80'
+          %p
+            %b comment:
+            %br
+            = text_area_tag 'article[comments]', @article.comments, {:size => '80x20'}
+          %p
+            = submit_tag

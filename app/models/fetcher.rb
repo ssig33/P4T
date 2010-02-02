@@ -15,11 +15,15 @@ class Fetcher < ActionMailer::Base
   end
 
   def receive(email)
-    begin
+    #begin
       if (email.attachments[0] and user = User.find_by_mail(email.to[0]))
-        begin
+        #begin
           img = Magick::ImageList.new
           img.from_blob(email.attachments[0].read)
+          puts email.subject
+          if email.subject == "delicious"
+            img = Article.delicious(img)
+          end
           article = Article.new
           text = split_text(email.body.gsub!(/Attachment:\ (.*)/, ""))
           article.title = text['title']
@@ -31,13 +35,14 @@ class Fetcher < ActionMailer::Base
             "http://#{SITE_DOMAIN}/photo/"+article.id.to_s)
           img.write("public/photos/#{article.id.to_s}.png")
           puts "success"
-        rescue => error
-          article.destroy
-          puts error
-        end
+        #rescue => error
+        #  article.destroy
+        #  puts error
+        #end
       end
-    rescue
-    end
+    #rescue
+    #  puts "Error!!!!!!"
+    #end
   end
 
   def split_text(text)
