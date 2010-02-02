@@ -11,3 +11,7 @@ img{
 .error{
   color:red;
 }
+
+div.comment{
+  margin-right:30%;
+}

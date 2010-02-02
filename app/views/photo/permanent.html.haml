@@ -17,6 +17,6 @@
         %br
     %div
       = image_tag '/photos/'+@article.id.to_s+'.png'
-      %div
+      %div.comment
         =sanitize @article.comments
       
